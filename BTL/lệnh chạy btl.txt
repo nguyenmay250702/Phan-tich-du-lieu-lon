@@ -1,0 +1,13 @@
+-BTL PHÂN TÍCH DỮ LIỆU LỚN:
+
+-xóa thư mục trong hdfs:
+hdfs dfs -rm -r -skipTrash /ID3_CAR_input
+
+-tạo thư mục:
+hdfs dfs -mkdir -p /BTL-KMean/input
+
+- đẩy dữ liệu lên hdfs:
+hdfs dfs -put "D:\phan_tich_du_lieu_lon\BTL\intput\data.txt" /BTL-KMean/input
+
+- chạy trương trình:
+hadoop jar D:\phan_tich_du_lieu_lon\BTL\KMean_BTL.jar -Din /BTL-KMean/input/data.txt -Dlines 300 -Dresult cluster_centers.txt -Dmaxloop 50 -Dk 2 -Dthresh 0.0001 -DNumReduceTask 2 -Dout /BTL-KMean/cluster_centers
